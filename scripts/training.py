@@ -10,6 +10,9 @@ from dataset import MTDataset
 from model import EncoderRNN, DecoderRNN, Seq2Seq
 from utils import training
 
+import nltk
+nltk.download('punkt')
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 dataset = pd.read_csv('../datasets/ludic.csv')
