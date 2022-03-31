@@ -34,7 +34,9 @@ class DecoderRNN(nn.Module):
 
     def forward(self, word, hidden):
         batch_size = word.shape[0]
-        word_emb = self.dropout(self.embedding(word).view(batch_size, 1, -1)).to(self.device)
+        word = word.to(self.device)
+        word_emb = self.embedding(word).view(batch_size, 1, -1).to(self.device)
+        word_emb = self.dropout(word_emb).to(self.device)
         output, hidden = self.gru(word_emb, hidden)
         output = self.out(output.view(batch_size, -1))
         return output, hidden
