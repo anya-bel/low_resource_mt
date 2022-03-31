@@ -46,12 +46,14 @@ class Seq2Seq(nn.Module):
         self.encoder = encoder
         self.decoder = decoder
         self.trg_vocab_size = decoder.tgt_vocab_size
+        self.device = decoder.device
 
     def forward(self, src_sentence, tgt_len):
         batch_size = src_sentence.shape[0]
-        pred_probas = torch.zeros(tgt_len, batch_size, self.trg_vocab_size)
+        pred_probas = torch.zeros(tgt_len, batch_size, self.trg_vocab_size).to(self.device)
         pred_probas[0, :, 2] = 1
         prev_word = torch.ones(batch_size).int() * 2
+        prev_word.to(self.device)
 
         output, hidden = self.encoder(src_sentence)
 
