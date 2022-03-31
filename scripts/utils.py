@@ -15,7 +15,7 @@ def evaluate_val(model, dataset, val_dataloader):
     return bleu_score.corpus_bleu(references, hypotheses)
 
 
-def training(model, train_dataloader, val_dataloader, dataset, num_epochs, loss_fn, optimizer, device='cpu',
+def training(model, train_dataloader, val_dataloader, dataset, num_epochs, loss_fn, optimizer, device,
              verbose=True):
     model.train()
     model.to(device)

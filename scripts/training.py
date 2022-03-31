@@ -44,7 +44,7 @@ with open('../models/log.txt', 'w') as logfile:
         optimizer = optim.Adam(seq2seq.parameters(), lr=lr)
         loss_fn = nn.CrossEntropyLoss(ignore_index=0)
         trained_model, losstotal, best_bleu, best_epoch = training(seq2seq, train_ludic_dataloader, val_ludic_dataloader,
-                                                                   train_ludic_dataset, 10, loss_fn, optimizer)
+                                                                   train_ludic_dataset, 10, loss_fn, optimizer, device)
         print(best_bleu, best_epoch)
         logfile.write(f'Params: {lr_val}, {hid_val}, {drop_val}, {emb_val}\n')
         logfile.write(f'BLEU: {best_bleu}, EPOCH: {best_epoch}\n\n')
