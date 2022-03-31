@@ -20,12 +20,13 @@ class EncoderRNN(nn.Module):
 
 
 class DecoderRNN(nn.Module):
-    def __init__(self, tgt_vocab_size, hidden_size, emb_hidden_size, dropout_rate):
+    def __init__(self, tgt_vocab_size, hidden_size, emb_hidden_size, dropout_rate, device):
         super(DecoderRNN, self).__init__()
         self.tgt_vocab_size = tgt_vocab_size
         self.hidden_size = hidden_size
         self.emb_hidden_size = emb_hidden_size
         self.dropout_rate = dropout_rate
+        self.device = device
         self.embedding = nn.Embedding(self.tgt_vocab_size, self.emb_hidden_size)
         self.dropout = nn.Dropout(dropout_rate)
         self.gru = nn.GRU(self.emb_hidden_size, self.hidden_size, batch_first=True)
@@ -33,7 +34,7 @@ class DecoderRNN(nn.Module):
 
     def forward(self, word, hidden):
         batch_size = word.shape[0]
-        word_emb = self.dropout(self.embedding(word).view(batch_size, 1, -1))
+        word_emb = self.dropout(self.embedding(word).view(batch_size, 1, -1)).to(self.device)
         output, hidden = self.gru(word_emb, hidden)
         output = self.out(output.view(batch_size, -1))
         return output, hidden

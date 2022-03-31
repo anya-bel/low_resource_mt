@@ -42,7 +42,7 @@ with open('../models/log.txt', 'w') as logfile:
         dropout_rate = drop_val
         lr = lr_val
         encoder = EncoderRNN(src_vocab_size, hidden_size, emb_hidden_size, dropout_rate)
-        decoder = DecoderRNN(tgt_vocab_size, hidden_size, emb_hidden_size, dropout_rate)
+        decoder = DecoderRNN(tgt_vocab_size, hidden_size, emb_hidden_size, dropout_rate, device=device)
         seq2seq = Seq2Seq(encoder, decoder)
         optimizer = optim.Adam(seq2seq.parameters(), lr=lr)
         loss_fn = nn.CrossEntropyLoss(ignore_index=0)
