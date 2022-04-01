@@ -1,5 +1,8 @@
-cd ../..
+echo $PWD 
+cd ..
+echo $PWD
 source mtenv/bin/activate
+echo $PWD
 cd low_resource_mt/src
 python3 -u  training_lstm.py --dataset ket > >(tee -a logs/lstm_ket_log.txt) 2> >(tee -a logs/lstm_ket_log_err.txt >&2)
 python3 -u  training_lstm.py --dataset chukchi > >(tee -a logs/lstm_chukchi_log.txt) 2> >(tee -a logs/lstm_chukchi_log_err.txt >&2)
