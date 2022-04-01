@@ -54,7 +54,7 @@ def main(datasetname):
             optimizer = optim.Adam(seq2seq.parameters(), lr=lr)
             loss_fn = nn.CrossEntropyLoss(ignore_index=0)
             trained_model, losstotal, best_bleu, best_epoch = training(seq2seq, train_dataloader, val_dataloader,
-                                                                       train_dataset, 1, loss_fn, optimizer, device)
+                                                                       train_dataset, 10, loss_fn, optimizer, device)
             print(best_bleu, best_epoch)
             logfile.write(f'Params: {lr_val}, {hid_val}, {drop_val}, {emb_val}, {layer_val} BESTBLEU: {best_bleu}, BESTEPOCH: {best_epoch}\n\n')
 
