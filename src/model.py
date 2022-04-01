@@ -102,6 +102,7 @@ class DecoderLSTM(nn.Module):
         batch_size = word.shape[0]
         word = word.to(self.device)
         word_emb = self.embedding(word).view(batch_size, 1, -1).to(self.device)
+        word_emb = self.dropout(word_emb).to(self.device)
         output, (hidden, cell) = self.gru(word_emb, (hidden, cell))
         output = self.out(output.view(batch_size, -1))
         return output, hidden, cell
