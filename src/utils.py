@@ -16,7 +16,7 @@ def evaluate_val(model, dataset, val_dataloader):
 
 
 def training(model, train_dataloader, val_dataloader, dataset, num_epochs, loss_fn, optimizer, device,
-             verbose=True):
+             verbose=True, modelpath='../models/seq2seq_model.pt'):
     model.train()
     model.to(device)
     loss_total = []
@@ -62,6 +62,6 @@ def training(model, train_dataloader, val_dataloader, dataset, num_epochs, loss_
                     best_bleu = bleu
                     best_epoch = epoch
                 model.train()
-        torch.save(model.state_dict(), '../models/seq2seq_model.pt')
+        torch.save(model.state_dict(), modelpath)
 
     return model, loss_total, best_bleu, best_epoch
