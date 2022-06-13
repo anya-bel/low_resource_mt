@@ -52,13 +52,13 @@ bash hyper_params.sh
 
 ##### Target augmentation with Russian synonyms:
 
-- [ ] Evenki
-- [ ] Ludic
-- [ ] Karelian
-- [ ] Selkup
-- [ ] Ket
-- [ ] Chukchi
-- [ ] Yeps
+- [x] Evenki
+- [x] Ludic
+- [x] Karelian
+- [x] Selkup
+- [x] Ket
+- [x] Chukchi
+- [x] Yeps
 
 ##### Manual augmentation:
 
@@ -80,8 +80,8 @@ bash hyper_params.sh
 
 ### mBART
 
-- [ ] Evenki
-- [ ] Ludic
+- [x] Evenki
+- [x] Ludic
 - [ ] Karelian
 - [ ] Selkup
 - [ ] Ket
