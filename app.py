@@ -34,7 +34,8 @@ with open('datasets/evenki_augmented.txt', 'a') as augmented_df:
         tgt = tgt.text_input(f'tgt', key=2, value='')
         submitted = st.form_submit_button('add new line')
         if submitted:
-            augmented_df.write(f"{src}, {new_src}, {tgt}\n")
+            if src != '' and new_src != '' and tgt != '':
+                augmented_df.write(f"{src}, {new_src}, {tgt}\n")
 aug = pd.read_csv('datasets/evenki_augmented.txt')
 st.table(aug)
 
