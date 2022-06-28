@@ -62,7 +62,7 @@ bash hyper_params.sh
 
 ##### Manual augmentation:
 
-- [ ] Evenki
+- [x] Evenki
 
 ##### Training automatic declension model for the source language:
 
@@ -82,8 +82,21 @@ bash hyper_params.sh
 
 - [x] Evenki
 - [x] Ludic
+- [x] Karelian
+- [x] Selkup
+- [x] Ket
+- [x] Chukchi
+- [ ] Yeps
+
+### mGPT
+
+- [ ] Evenki
+- [ ] Ludic
 - [ ] Karelian
 - [ ] Selkup
 - [ ] Ket
 - [ ] Chukchi
 - [ ] Yeps
+
+### SeqGAN
+
