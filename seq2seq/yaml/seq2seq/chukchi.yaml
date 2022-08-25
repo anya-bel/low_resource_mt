@@ -1,0 +1,37 @@
+## Where the samples will be written
+save_data: chukchi/run/example
+## Where the vocab(s) will be written
+src_vocab: chukchi/run/chukchi.vocab.src
+tgt_vocab: chukchi/run/chukchi.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: True
+
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: low_resource_mt/datasets/chukchi/src-train.txt
+        path_tgt: low_resource_mt/datasets/chukchi/tgt-train.txt
+    valid:
+        path_src: low_resource_mt/datasets/chukchi/src-val.txt
+        path_tgt: low_resource_mt/datasets/chukchi/tgt-val.txt
+
+# Vocabulary files that were just created
+src_vocab: chukchi/run/chukchi.vocab.src
+tgt_vocab: chukchi/run/chukchi.vocab.tgt
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+batch_size: 1
+valid_batch_size: 1
+
+# Where to save the checkpoints
+save_model: chukchi/run/model
+save_checkpoint_steps: 1000
+train_steps: 80000
+valid_steps: 1000
+
+optim: adam
+learning_rate: 0.00001

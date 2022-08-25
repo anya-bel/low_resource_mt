@@ -1,0 +1,46 @@
+
+## Where the samples will be written
+save_data: ket/run/example
+## Where the vocab(s) will be written
+src_vocab: ket/run/ket.vocab.src
+tgt_vocab: ket/run/ket.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: True
+
+
+
+#both_embeddings: vectors.txt
+src_embeddings: ket_embs.txt
+tgt_embeddings: ket_rusembs.txt
+embeddings_type: "word2vec"
+src_word_vec_size: 1185
+tgt_word_vec_size: 991
+
+
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: low_resource_mt/datasets/ket/src-train.txt
+        path_tgt: low_resource_mt/datasets/ket/tgt-train.txt
+    valid:
+        path_src: low_resource_mt/datasets/ket/src-val.txt
+        path_tgt: low_resource_mt/datasets/ket/tgt-val.txt
+
+# Vocabulary files that were just created
+src_vocab: ket/run/ket.vocab.src
+tgt_vocab: ket/run/ket.vocab.tgt
+
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: ket/run/model
+save_checkpoint_steps: 1000
+train_steps: 80000
+valid_steps: 1000
+
+optim: adam
+learning_rate: 0.00001
