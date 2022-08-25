@@ -1,13 +1,16 @@
 # Machine Translation for low-resource languages
 This repository is dedicated to the machine translation from 7 low-resource language of Russia to Russian. 
 
-Each folder gathers all experiments made with one of the models (smt, seq2seq, mbart, gpt) or all experiments related to some kind of data augmentation
+Each folder gathers all experiments made with one of the models (smt, seq2seq, mbart, gpt) or all experiments related to some kind of data augmentation.
 
 #### General prerequisites:
 
 `python3 -m venv mtenv`
+
 `git clone https://github.com/anya-bel/low_resource_mt.git`
+
 `cd low_resource_mt`
+
 `pip3 install -r requirements.txt`
 
 #### Repostiory's structure:
